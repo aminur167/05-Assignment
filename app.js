@@ -95,3 +95,25 @@ const searchIssues = (event) => {
     loadStatusIssues(currentStatus);
     return;
   }
+
+  manageSpinner(true);
+
+  fetch(`${searchIssueUrl}${encodeURIComponent(searchText)}`)
+    .then((res) => res.json())
+    .then((json) => {
+      currentIssues = json.data || [];
+      loadStatusIssues(currentStatus);
+      document.getElementById("summaryText").innerText = `Search results for "${searchText}"`;
+    })
+    .catch(() => {
+      const lowerSearch = searchText.toLowerCase();
+      currentIssues = allIssues.filter((issue) => {
+        const labels = issue.labels ? issue.labels.join(" ") : "";
+        return `${issue.title} ${issue.description} ${issue.author} ${issue.priority} ${labels}`
+          .toLowerCase()
+          .includes(lowerSearch);
+      });
+      loadStatusIssues(currentStatus);
+      document.getElementById("summaryText").innerText = `Search results for "${searchText}"`;
+    });
+};
