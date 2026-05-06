@@ -1,0 +1,14 @@
+* {
+  font-family: "Poppins", "Inter", sans-serif;
+}
+
+.active {
+  background-color: #4c00ff !important;
+  color: white !important;
+}
+
+.issue-card.open {
+  border-top: 3px solid #18c37e;
+}
+
+
