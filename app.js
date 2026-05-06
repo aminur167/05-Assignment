@@ -235,3 +235,15 @@ document.getElementById("searchForm").addEventListener("submit", searchIssues);
 document.querySelectorAll(".tab").forEach((button) => {
   button.addEventListener("click", () => loadStatusIssues(button.dataset.filter));
 });
+
+document.getElementById("issueModal").addEventListener("click", (event) => {
+  if (event.target.hasAttribute("data-close-modal")) {
+    closeIssueModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeIssueModal();
+  }
+});
