@@ -228,3 +228,10 @@ const formatDate = (date) => {
     day: "numeric"
   });
 };
+
+document.getElementById("loginForm").addEventListener("submit", loginUser);
+document.getElementById("searchForm").addEventListener("submit", searchIssues);
+
+document.querySelectorAll(".tab").forEach((button) => {
+  button.addEventListener("click", () => loadStatusIssues(button.dataset.filter));
+});
