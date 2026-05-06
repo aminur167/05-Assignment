@@ -11,4 +11,21 @@
   border-top: 3px solid #18c37e;
 }
 
+.issue-card.closed {
+  border-top: 3px solid #7a5cff;
+}
 
+.priority-high {
+  background: #fff0f2;
+  color: #ff5573;
+}
+
+.priority-medium {
+  background: #fff8db;
+  color: #e4a100;
+}
+
+.priority-low {
+  background: #eef2f8;
+  color: #8b98aa;
+}
